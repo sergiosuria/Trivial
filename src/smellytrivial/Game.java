@@ -26,6 +26,12 @@ public class Game {
         }
     }
 
+    public Game(String nombreJugador1, String nombreJugador2) {
+        agregar(nombreJugador1);
+        agregar(nombreJugador2);
+
+    }
+
     public String crearPreguntaMusica(int index){
         return "Pregunta de Música " + index;
     }

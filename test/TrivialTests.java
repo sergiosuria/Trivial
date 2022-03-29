@@ -20,7 +20,7 @@ public class TrivialTests {
 
         sut.tirarDado(1);
 
-        String expected = "La nueva posición de Maria es 1";
+        String expected = "La nueva posición de María es 1";
 
         String actual = sut.nuevaPosicionJugador();
 
@@ -56,5 +56,13 @@ public class TrivialTests {
                 ()->sut.tirarDado(1),
                 "Debe haber al menos dos jugadores");
 
+    }
+
+    @Test
+    public void crear_partida_con_dos_jugadores_es_jugable(){
+        Game sut = new Game("Maria","Juan");
+        boolean actual = sut.esJugable();
+
+        Assertions.assertEquals(true, actual);
     }
 }
