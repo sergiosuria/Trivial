@@ -60,7 +60,7 @@ public class TrivialTests {
 
     @Test
     public void crear_partida_con_dos_jugadores_es_jugable(){
-        Game sut = new Game("Maria","Juan","Pepe", "Carlos");
+        Game sut = new Game("Maria","Juan","Pepe", "Carlos", "Lara");
         boolean actual = sut.esJugable();
 
         Assertions.assertEquals(true, actual);

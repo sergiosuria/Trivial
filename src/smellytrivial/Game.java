@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
+    private static final String nombrejugador2 = "Juan";
     ArrayList jugadores = new ArrayList();
     int[] posiciones = new int[6];
     int[] monederos = new int[6];
@@ -40,6 +41,11 @@ public class Game {
     public Game(String nombreJugador1, String nombrejugador2, String nombreJugador3, String nombreJugador4) {
         this(nombreJugador1,nombrejugador2,nombreJugador3);
         agregar(nombreJugador4);
+    }
+
+    public Game(String nombreJugador1, String nombreJugador2, String nombreJugador3, String nombreJugador4, String nombreJugador5) {
+        this(nombreJugador1,nombrejugador2,nombreJugador3, nombreJugador4);
+        agregar(nombreJugador5);
     }
 
     public String crearPreguntaMusica(int index){
