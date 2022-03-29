@@ -32,6 +32,11 @@ public class Game {
 
     }
 
+    public Game(String nombreJugador1, String nombreJugador2, String nombreJugador3) {
+        this(nombreJugador1,nombreJugador2);
+        agregar(nombreJugador3);
+    }
+
     public String crearPreguntaMusica(int index){
         return "Pregunta de Música " + index;
     }
