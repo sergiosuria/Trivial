@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
-    private static final String nombrejugador2 = "Juan";
     ArrayList jugadores = new ArrayList();
     int[] posiciones = new int[6];
     int[] monederos = new int[6];
@@ -44,8 +43,13 @@ public class Game {
     }
 
     public Game(String nombreJugador1, String nombreJugador2, String nombreJugador3, String nombreJugador4, String nombreJugador5) {
-        this(nombreJugador1,nombrejugador2,nombreJugador3, nombreJugador4);
+        this(nombreJugador1,nombreJugador2,nombreJugador3, nombreJugador4);
         agregar(nombreJugador5);
+    }
+
+    public Game(String nombreJugador1, String nombrejugador2, String nombreJugador3, String nombreJugador4, String nombreJugador5, String nombreJugador6) {
+    this(nombreJugador1,nombrejugador2,nombreJugador3,nombreJugador4,nombreJugador5);
+    agregar(nombreJugador6);
     }
 
     public String crearPreguntaMusica(int index){
@@ -60,9 +64,9 @@ public class Game {
 
 
         jugadores.add(playerName);
-        posiciones[cuantosJugadores()] = 0;
-        monederos[cuantosJugadores()] = 0;
-        enCasillaCastigo[cuantosJugadores()] = false;
+        posiciones[cuantosJugadores()-1] = 0;
+        monederos[cuantosJugadores()-1] = 0;
+        enCasillaCastigo[cuantosJugadores()-1] = false;
 
         System.out.println(playerName + " se ha unido a la partida");
         System.out.println("Es el jugador número " + jugadores.size());
