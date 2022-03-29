@@ -15,3 +15,8 @@ para ese método, y desde
 comprobación y si solo hay
 1 jugadordevolvemos una 
 excepción. También hacemos un test para verificar el lanzamiento de la excepción
+
+## Problema 2
+Aquí podríamos seguir el mismo enfoque del problema anterior, pero como ahora tenemos un número dejugadores delimitado entre 2 y 6, y no son muchas combinaciones, lo que haremos será crear tantosconstructores de la clase Game como posibles jugadores.Esto nos obliga por diseño a tener un número correcto de jugadores
+Cuando llegamos al constructor para 6 jugadores y ejecutamos el test nos encontramos con que hay un bugen la aplicación.
+Lo que está ocurriendo es que los arrays “posiciones”, “monederos” y “enCasillaCastigo” se estáninicializando con un tamaño fijo de 6.
