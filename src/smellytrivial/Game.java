@@ -51,36 +51,10 @@ public class Game {
         return jugadores.size();
     }
 
-    public void tirarDado(int puntosDado) {
-        System.out.println(jugadores.get(jugadorActual) + " es el jugador actual");
-        System.out.println("Ha sacado un " + puntosDado);
-
-        if (enCasillaCastigo[jugadorActual]) {
-            if (puntosDado % 2 != 0) {
-                estaSaliendoDeLaCarcel = true;
-
-                System.out.println(jugadores.get(jugadorActual) + " sale de la casilla de castigo");
-                posiciones[jugadorActual] = posiciones[jugadorActual] + puntosDado;
-                if (posiciones[jugadorActual] > 11) posiciones[jugadorActual] = posiciones[jugadorActual] - 12;
-
-                nuevaPosicionJugador();
-                System.out.println("La categoría es " + categoriaActual());
-                hacerPregunta();
-            } else {
-                System.out.println(jugadores.get(jugadorActual) + " no sale de la casilla de castigo");
-                estaSaliendoDeLaCarcel = false;
-            }
-
-        } else {
-
-            posiciones[jugadorActual] = posiciones[jugadorActual] + puntosDado;
-            if (posiciones[jugadorActual] > 11) posiciones[jugadorActual] = posiciones[jugadorActual] - 12;
-
-            nuevaPosicionJugador();
-            System.out.println("La categoría es " + categoriaActual());
-            hacerPregunta();
-        }
-
+    public void tirarDado(int puntosDado) throws Exception {
+    if (!esJugable()) {
+        throw new Exception("Debe haber al menos dos jugadores");
+    }
     }
 
     public String nuevaPosicionJugador() {

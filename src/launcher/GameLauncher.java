@@ -9,7 +9,7 @@ public class GameLauncher {
 
     private static boolean noGanador;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Game juego = new Game();
 
         juego.agregar("Maria");
