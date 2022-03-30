@@ -20,7 +20,7 @@ public class TrivialTests {
 
         sut.tirarDado(1);
 
-        String expected = "La nueva posición de María es 1";
+        String expected = "La nueva posición de Maria es 0";
 
         String actual = sut.nuevaPosicionJugador();
 
@@ -64,5 +64,32 @@ public class TrivialTests {
         boolean actual = sut.esJugable();
 
         Assertions.assertEquals(true, actual);
+    }
+
+    @Test
+    public void un_jugador_que_falla_va_a_la_carcel() throws Exception{
+        Game sut = new Game("Maria", "Juan");
+        sut.tirarDado(1);
+        sut.respuestaIncorrecta();
+
+        boolean actual = sut.estaEnCarcel("Maria");
+
+        Assertions.assertTrue(actual);
+
+    }
+    @Test
+    public void un_jugador_en_la_carcel_que_acierta_sale_de_la_carcel() throws Exception{
+        Game sut = new Game("Maria", "Juan");
+        sut.tirarDado(1);
+        sut.respuestaIncorrecta();
+
+        sut.tirarDado(1);
+        sut.fueRespuestaCorrecta();
+
+        sut.tirarDado(1);
+
+        boolean actual = sut.estaEnCarcel("Maria");
+
+        Assertions.assertFalse(actual);
     }
 }

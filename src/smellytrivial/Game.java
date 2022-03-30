@@ -17,7 +17,7 @@ public class Game {
     int jugadorActual = 0;
     boolean estaSaliendoDeLaCarcel;
 
-    public  Game(){
+    public Game() {
         for (int i = 0; i < 50; i++) {
             preguntasCultura.addLast("Pregunta de Cultura " + i);
             preguntasCiencias.addLast(("Pregunta de Ciencias " + i));
@@ -33,26 +33,26 @@ public class Game {
     }
 
     public Game(String nombreJugador1, String nombreJugador2, String nombreJugador3) {
-        this(nombreJugador1,nombreJugador2);
+        this(nombreJugador1, nombreJugador2);
         agregar(nombreJugador3);
     }
 
     public Game(String nombreJugador1, String nombrejugador2, String nombreJugador3, String nombreJugador4) {
-        this(nombreJugador1,nombrejugador2,nombreJugador3);
+        this(nombreJugador1, nombrejugador2, nombreJugador3);
         agregar(nombreJugador4);
     }
 
     public Game(String nombreJugador1, String nombreJugador2, String nombreJugador3, String nombreJugador4, String nombreJugador5) {
-        this(nombreJugador1,nombreJugador2,nombreJugador3, nombreJugador4);
+        this(nombreJugador1, nombreJugador2, nombreJugador3, nombreJugador4);
         agregar(nombreJugador5);
     }
 
     public Game(String nombreJugador1, String nombrejugador2, String nombreJugador3, String nombreJugador4, String nombreJugador5, String nombreJugador6) {
-    this(nombreJugador1,nombrejugador2,nombreJugador3,nombreJugador4,nombreJugador5);
-    agregar(nombreJugador6);
+        this(nombreJugador1, nombrejugador2, nombreJugador3, nombreJugador4, nombreJugador5);
+        agregar(nombreJugador6);
     }
 
-    public String crearPreguntaMusica(int index){
+    public String crearPreguntaMusica(int index) {
         return "Pregunta de Música " + index;
     }
 
@@ -64,9 +64,9 @@ public class Game {
 
 
         jugadores.add(playerName);
-        posiciones[cuantosJugadores()-1] = 0;
-        monederos[cuantosJugadores()-1] = 0;
-        enCasillaCastigo[cuantosJugadores()-1] = false;
+        posiciones[cuantosJugadores() - 1] = 0;
+        monederos[cuantosJugadores() - 1] = 0;
+        enCasillaCastigo[cuantosJugadores() - 1] = false;
 
         System.out.println(playerName + " se ha unido a la partida");
         System.out.println("Es el jugador número " + jugadores.size());
@@ -78,13 +78,27 @@ public class Game {
     }
 
     public void tirarDado(int puntosDado) throws Exception {
-    if (!esJugable()) {
-        throw new Exception("Debe haber al menos dos jugadores");
-    }
-    }
+        if (!esJugable()) {
+            throw new Exception("Debe haber al menos dos jugadores");
+        }
+            System.out.println(jugadores.get(jugadorActual) + " es el jugador actual");
+            System.out.println("Ha sacado un " + puntosDado);
+
+            if (enCasillaCastigo[jugadorActual]) {
+                if (puntosDado % 2 != 0) {
+                    estaSaliendoDeLaCarcel = true;
+                    enCasillaCastigo[jugadorActual] = false;
+
+                } else {
+                    System.out.println(jugadores.get(jugadorActual) + " no sale de la casilla de castigo");
+                    estaSaliendoDeLaCarcel = false;
+                }
+            }
+        }
+
 
     public String nuevaPosicionJugador() {
-       return ("La nueva posición de "
+        return ("La nueva posición de "
                 + jugadores.get(jugadorActual)
                 + " es "
                 + posiciones[jugadorActual]);
@@ -117,7 +131,7 @@ public class Game {
     }
 
     public boolean fueRespuestaCorrecta() {
-        if (enCasillaCastigo[jugadorActual]){
+        if (enCasillaCastigo[jugadorActual]) {
             if (estaSaliendoDeLaCarcel) {
                 System.out.println("Respuesta correcta!!!!");
                 monederos[jugadorActual]++;
@@ -138,7 +152,6 @@ public class Game {
             }
 
 
-
         } else {
 
             System.out.println("Respuesta correcta!!!!");
@@ -156,9 +169,9 @@ public class Game {
         }
     }
 
-    public boolean respuestaIncorrecta(){
+    public boolean respuestaIncorrecta() {
         System.out.println("Respuesta incorrecta");
-        System.out.println(jugadores.get(jugadorActual)+ " va a la casilla de castigo");
+        System.out.println(jugadores.get(jugadorActual) + " va a la casilla de castigo");
         enCasillaCastigo[jugadorActual] = true;
 
         jugadorActual++;
@@ -169,5 +182,10 @@ public class Game {
 
     private boolean jugadorHaGanado() {
         return !(monederos[jugadorActual] == 6);
+    }
+
+    public boolean estaEnCarcel(String nombreJugador) {
+        int indiceJugador = jugadores.indexOf(nombreJugador);
+        return enCasillaCastigo[indiceJugador];
     }
 }
