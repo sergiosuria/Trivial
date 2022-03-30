@@ -29,3 +29,7 @@ Ahora tenemos que ir a la clase Game y cambiar en “enCasillaCastigo[jugadorAct
 
 ##Problema 4
 Los nombres y contenidos de variables y funciones que indican si un jugador ha ganado eran incorrectos o retorcidos. Arreglamos la manera de llamar a las funciones y variables para invertir la logica y lo verificamos con los tests.
+
+## Problema 5
+Extraemos el metodo repetido y le ponemos el nombre "siguienteTurno" para evitar la redundancia
+
