@@ -35,3 +35,6 @@ Extraemos el metodo repetido y le ponemos el nombre "siguienteTurno" para evitar
 
 ## Problema 6
 Al igual que en el problema 5, extraemos codigo duplicado y creamos la funcion acertarPregunta.
+
+##Problema 7
+Me da un error a la hora de ejecutar el test

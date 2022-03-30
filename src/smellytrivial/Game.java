@@ -1,6 +1,7 @@
 package smellytrivial;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 
 public class Game {
@@ -108,12 +109,21 @@ public class Game {
     private void hacerPregunta() {
         if (categoriaActual() == "Cultura popular")
             System.out.println(preguntasCultura.removeFirst());
+        boolean pregunta = false;
+        System.out.println(pregunta);
+        preguntasCultura.addLast(pregunta);
         if (categoriaActual() == "Ciencias")
             System.out.println(preguntasCiencias.removeFirst());
+        System.out.println(pregunta);
+        preguntasCiencias.addLast(pregunta);
         if (categoriaActual() == "Deportes")
             System.out.println(preguntasDeportes.removeFirst());
+        System.out.println(pregunta);
+        preguntasDeportes.addLast(pregunta);
         if (categoriaActual() == "Música")
             System.out.println(preguntasMusica.removeFirst());
+        System.out.println(pregunta);
+        preguntasMusica.addLast(pregunta);
     }
 
 
@@ -182,5 +192,9 @@ public class Game {
     public boolean estaEnCarcel(String nombreJugador) {
         int indiceJugador = jugadores.indexOf(nombreJugador);
         return enCasillaCastigo[indiceJugador];
+    }
+
+    public LinkedList getPreguntasCiencias() {
+        return preguntasCiencias;
     }
 }
