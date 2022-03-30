@@ -26,3 +26,6 @@ Un jugador va a la cárcel cuando falla una pregunta. Vamos a verificarlo con un
 No tenemos ningún método que nos indique si dado un jugador, éste está en la cárcel, así que vamos a crear mediante TDD.
 Ahora hacemos un nuevo test para verificar que el jugador sale de la cárcel tras sacar un número impar en la tirada.
 Ahora tenemos que ir a la clase Game y cambiar en “enCasillaCastigo[jugadorActual] = true” por un false.
+
+##Problema 4
+Los nombres y contenidos de variables y funciones que indican si un jugador ha ganado eran incorrectos o retorcidos. Arreglamos la manera de llamar a las funciones y variables para invertir la logica y lo verificamos con los tests.
