@@ -33,3 +33,5 @@ Los nombres y contenidos de variables y funciones que indican si un jugador ha g
 ## Problema 5
 Extraemos el metodo repetido y le ponemos el nombre "siguienteTurno" para evitar la redundancia
 
+## Problema 6
+Al igual que en el problema 5, extraemos codigo duplicado y creamos la funcion acertarPregunta.
